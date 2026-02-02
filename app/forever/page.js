@@ -132,7 +132,7 @@ export default function ForeverPage() {
           <div className="relative py-4">
              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-12 h-1 bg-rose-300 rounded-full" />
              <p className={`${scriptFont.className} text-2xl md:text-3xl text-rose-600 leading-relaxed max-w-sm mx-auto`}>
-               "{content.wish}"
+               &quot;{content.wish}&quot;
              </p>
              <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-12 h-1 bg-rose-300 rounded-full" />
           </div>

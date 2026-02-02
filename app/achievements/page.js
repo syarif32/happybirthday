@@ -302,9 +302,7 @@ export default function AnnualReportPage() {
                   className="bg-white p-6 rounded-2xl border-2 border-dashed border-rose-300 text-center transform rotate-1 mt-8 shadow-sm cursor-pointer"
                   whileHover={{ rotate: 0, scale: 1.05 }}
                 >
-                   <p className={`${handFont.className} text-4xl text-rose-500`}>
-                      "Luka hari ini adalah kekuatanmu besok. Proud of you!" 
-                   </p>
+                   <p className={`${bodyFont.className} text-gray-700 italic`}>&quot;Luka hari ini adalah kekuatanmu besok. Proud of you!&quot;</p>
                 </motion.div>
              </div>
           </motion.div>
