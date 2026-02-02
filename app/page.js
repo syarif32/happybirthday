@@ -189,7 +189,7 @@ export default function Home() {
             <p className="mb-2">
               Hidupku penuh <span className={`${codeFont.className} bg-rose-100 text-rose-700 px-1 rounded text-sm font-medium`}>bugs</span>, tapi sejak ada kamu, semuanya jadi <span className={`${codeFont.className} bg-pink-100 text-pink-700 px-1 rounded text-sm font-medium`}>balance</span>.
             </p>
-            <p>Terima kasih sudah menjadi aset paling berharga yang nggak akan pernah aku depresiasi. ❤️</p>
+            <p>Terima kasih sudah menjadi aset paling berharga yang nggak akan pernah depresiasi. ❤️</p>
           </motion.div>
 
           <motion.div 
@@ -272,7 +272,7 @@ export default function Home() {
                <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
                  <Image 
                    // GANTI DENGAN FOTO PACAR KAMU
-                   src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80" 
+                   src="https://drive.google.com/file/d/11r05tskCFdMV0mDlDlOVO_71xxkpcpYu/view?usp=sharing" 
                    alt="Birthday Girl"
                    fill
                    className="object-cover transition-transform duration-700 hover:scale-110"

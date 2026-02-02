@@ -51,7 +51,7 @@ const otherAchievements = [
 ]
 
 const struggles = [
-  { id: 1, title: "Air Mata & Revisi", date: "Awal Tahun", desc: "Ingat nggak waktu kamu nangis karena ngerasa buntu? Itu bukan kelemahan, itu bukti kamu peduli.", mood: "rain" },
+  { id: 1, title: "Sempet Ragu Sama Potensi Diri Kamu Sendiri", date: "Awal Tahun", desc: "Ingat nggak waktu kamu nangis karena ngerasa buntu? Itu bukan kelemahan, itu bukti kamu peduli.", mood: "rain" },
   { id: 2, title: "Ragu sama Diri Sendiri", date: "Pertengahan Tahun", desc: "Kamu sempat mikir buat nyerah. Tapi lihat, kamu tetap jalan terus walaupun kakimu gemetar.", mood: "cloud" },
   { id: 3, title: "Menemukan Cahaya", date: "Sekarang", desc: "Pelan-pelan badai berlalu. Kamu tumbuh jadi wanita yang jauh lebih kuat.", mood: "sun" },
 ]

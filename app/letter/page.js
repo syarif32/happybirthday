@@ -171,7 +171,7 @@ export default function LetterPage() {
                          </div>
                          <div>
                            <p className="text-[10px] text-rose-400 font-bold uppercase tracking-wider">Now Playing</p>
-                           <p className="text-sm text-rose-700 font-medium truncate max-w-[120px]">Lagu Favorit Kita 🎵</p>
+                           <p className="text-sm text-rose-700 font-medium truncate max-w-[120px]">Music🎵</p>
                          </div>
                        </motion.div>
 
