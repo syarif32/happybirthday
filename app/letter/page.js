@@ -24,7 +24,7 @@ const letterContent = {
     "Happy Level 20! Mari kita tua bersama, menertawakan hal bodoh, dan menaklukkan dunia berdua. I love you, more than words could ever say."
   ],
   closing: "Peluk hangat,",
-  sender: "Pacarmu Tersayang"
+  sender: "Mamasssss <3"
 }
 
 const FallingPetals = () => {
@@ -143,7 +143,7 @@ export default function LetterPage() {
                          <div className="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center text-white animate-spin-slow"><Music size={14} /></div>
                          <div>
                            <p className="text-[10px] text-rose-400 font-bold uppercase tracking-wider">Now Playing</p>
-                           <p className="text-sm text-rose-700 font-medium truncate max-w-[120px]">Lagu Favorit Kita 🎵</p>
+                           <p className="text-sm text-rose-700 font-medium truncate max-w-[120px]">Music🎵</p>
                          </div>
                        </motion.div>
                        <motion.h1 variants={itemVariants} className={`${handwritingFont.className} text-5xl md:text-6xl text-rose-600 font-bold drop-shadow-sm leading-tight`}>
@@ -155,7 +155,7 @@ export default function LetterPage() {
                        <div className="w-32 h-32 md:w-40 md:h-40 bg-gray-50 overflow-hidden transition-all duration-500 rounded-sm relative z-0">
                           <Image src={letterContent.photoUrl} alt="Us" width={200} height={200} className="object-cover w-full h-full hover:scale-110 transition-transform duration-700" />
                        </div>
-                       <p className={`${handwritingFont.className} text-center mt-3 text-gray-500 text-xl`}>Our Story ❤️</p>
+                       <p className={`${handwritingFont.className} text-center mt-3 text-gray-500 text-xl`}>20th❤️</p>
                     </motion.div>
                   </div>
 

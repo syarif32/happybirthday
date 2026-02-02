@@ -1,207 +1,172 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Stars, Infinity as InfinityIcon, Sparkles, Home, Quote, ArrowRight, Flower2 } from 'lucide-react'
+import { Heart, Infinity as InfinityIcon, Sparkles, Home, ArrowRight, Stars } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Dancing_Script, Playfair_Display, Inter } from 'next/font/google'
 
 // --- FONT SETUP ---
-const handwritingFont = Dancing_Script({ subsets: ['latin'], weight: ['700'] })
-const serifFont = Playfair_Display({ subsets: ['latin'], weight: ['500', '700', '900'] })
+const scriptFont = Dancing_Script({ subsets: ['latin'], weight: ['700'] })
+const serifFont = Playfair_Display({ subsets: ['latin'], weight: ['600', '800'] })
 const bodyFont = Inter({ subsets: ['latin'], weight: ['300', '400', '500'] })
 
 // --- DATA KONTEN ---
 const content = {
+  // Pastikan foto ini ada. Foto akan tampil NATURAL (tanpa filter pink).
   image: "/memories/image.png", 
   title: "Barrakallah Fii Umrik",
   name: "Icha Febrianti Nur",
-  wish: "Semoga di usiamu yang ke-20 ini, segala impian dan harapanmu dapat terwujud dengan indah. Teruslah menjadi pribadi yang kuat, penuh cinta, dan inspiratif seperti yang selama ini aku kenal. Mamas selalu berdoa agar kebahagiaan, kesehatan, dan kesuksesan selalu menyertai setiap langkah perjalanan hidup adekk. Semoga di tahun ini adek menjadi lebih baik dari tahun-tahun sebelumnya dan Semoga Allah selalu melancarkan segala urusanmu. Aamiin ya rabbal'alamin.",
+  wish: "Semoga di usiamu yang ke-20 ini, segala impian dan harapanmu dapat terwujud dengan indah. Teruslah menjadi pribadi yang kuat, penuh cinta, dan inspiratif. Mamas selalu berdoa agar kebahagiaan menyertai langkahmu. Semoga Allah selalu melancarkan segala urusanmu. Aamiin.",
   footer: "Forever & Always"
 }
 
-// --- KOMPONEN LATAR BELAKANG AURORA ---
-const AuroraBackground = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <motion.div
-      animate={{
-        scale: [1, 1.2, 1],
-        rotate: [0, 90, 0],
-        opacity: [0.3, 0.5, 0.3],
-      }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute -top-[30%] -left-[10%] w-[70%] h-[70%] bg-gradient-to-r from-rose-300 to-purple-300 rounded-full blur-[150px] mix-blend-multiply"
-    />
-    <motion.div
-      animate={{
-        scale: [1, 1.1, 1],
-        rotate: [0, -90, 0],
-        opacity: [0.3, 0.6, 0.3],
-      }}
-      transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
-      className="absolute -bottom-[30%] -right-[10%] w-[80%] h-[80%] bg-gradient-to-l from-yellow-200 to-pink-300 rounded-full blur-[150px] mix-blend-multiply"
-    />
+// --- PARTIKEL HALUS ---
+const FloatingParticles = () => (
+  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    {[...Array(15)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute bg-rose-300/30 rounded-full blur-sm"
+        style={{
+          width: Math.random() * 10 + 5,
+          height: Math.random() * 10 + 5,
+          left: Math.random() * 100 + '%',
+          top: Math.random() * 100 + '%',
+        }}
+        animate={{
+          y: [0, -100],
+          opacity: [0, 1, 0],
+        }}
+        transition={{
+          duration: Math.random() * 10 + 10,
+          repeat: Infinity,
+          ease: "linear",
+          delay: Math.random() * 5
+        }}
+      />
+    ))}
   </div>
 )
 
-// --- KOMPONEN PARTIKEL MENGAMBANG (Floating Petals/Sparkles) ---
-const FloatingParticles = () => (
-    <div className="absolute inset-0 pointer-events-none">
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-white/60 drop-shadow-md"
-          style={{
-            left: Math.random() * 100 + '%',
-            top: Math.random() * 100 + '%',
-            scale: Math.random() * 0.5 + 0.5,
-          }}
-          animate={{
-            y: [0, -150, 0],
-            x: [0, Math.random() * 50 - 25, 0],
-            rotate: [0, 360],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: Math.random() * 10
-          }}
-        >
-          {i % 2 === 0 ? <Sparkles size={20} /> : <Flower2 size={16} />}
-        </motion.div>
-      ))}
-    </div>
-  )
-
 export default function ForeverPage() {
   return (
-    <main className={`min-h-screen relative flex items-center justify-center bg-[#f8fafc] overflow-hidden px-4 ${bodyFont.className}`}>
+    <main className={`min-h-screen relative flex items-center justify-center bg-[#fff0f5] overflow-hidden px-6 md:px-12 ${bodyFont.className}`}>
       
-      {/* --- LAPISAN BACKGROUND --- */}
-      {/* 1. Warna Dasar */}
-      <div className="absolute inset-0 bg-[#fff0f5]" />
+      {/* --- BACKGROUND --- */}
+      {/* Aurora Halus di pojok biar tidak kosong */}
+      <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] bg-rose-100 rounded-full blur-[120px] opacity-60 pointer-events-none" />
+      <div className="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-purple-100 rounded-full blur-[120px] opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise.png')] opacity-[0.02] pointer-events-none"></div>
       
-      {/* 2. Aurora Bergerak */}
-      <AuroraBackground />
-      
-      {/* 3. Tekstur Noise (Film Grain) untuk kesan mewah */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
-      
-      {/* 4. Partikel Mengambang */}
       <FloatingParticles />
 
-      {/* Simbol Infinity Besar */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-         <motion.div 
-           animate={{ rotate: 360, scale: [1, 1.05, 1] }}
-           transition={{ rotate: { duration: 120, repeat: Infinity, ease: "linear" }, scale: { duration: 10, repeat: Infinity, ease: "easeInOut" } }}
-         >
-            <InfinityIcon size={900} strokeWidth={0.1} className="text-rose-950" />
-         </motion.div>
+      {/* Simbol Infinity Raksasa (Samar di background) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02]">
+         <InfinityIcon size={1000} className="text-rose-900" />
       </div>
 
-      {/* --- KONTEN UTAMA (KARTU KACA PREMIUM) --- */}
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-20 w-full max-w-5xl perspective-1000"
-      >
-        {/* Glass Container */}
+      {/* --- MAIN CONTENT (Layout Kiri-Kanan) --- */}
+      <div className="relative z-10 w-full max-w-7xl flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+        
+        {/* === LEFT SIDE: TEXT (TYPOGRAPHY CANTIK) === */}
         <motion.div 
-            whileHover={{ y: -10, rotateX: 2, scale: 1.01 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white/60 backdrop-blur-2xl border border-white/40 shadow-[0_30px_80px_-20px_rgba(244,63,94,0.25)] rounded-[3rem] p-8 md:p-14 flex flex-col md:flex-row items-center gap-12 md:gap-20 relative overflow-hidden transition-all"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-1/2 text-center md:text-left relative order-2 md:order-1"
         >
-           {/* Efek Kilauan Kaca */}
-           <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-white/20 opacity-70 pointer-events-none rounded-[3rem]"></div>
-
-           {/* LEFT: FOTO DENGAN GLOWING AURA */}
-           <div className="w-full md:w-1/2 relative group z-10">
-              {/* Glowing Aura di belakang foto */}
-              <motion.div 
-                animate={{ opacity: [0.5, 0.8, 0.5], scale: [0.95, 1.05, 0.95] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -inset-4 bg-gradient-to-tr from-rose-400 via-pink-300 to-purple-400 rounded-[2.5rem] blur-2xl opacity-60"
-              />
-              
-              <div className="relative aspect-[3/4] w-full rounded-[2rem] overflow-hidden border-[6px] border-white shadow-2xl transform transition-transform duration-700 group-hover:scale-[1.02]">
-                 <Image 
-                   src={content.image} 
-                   alt="Birthday Girl" 
-                   fill 
-                   className="object-cover"
-                   priority
-                 />
-                 {/* Overlay Cahaya Sinematik */}
-                 <div className="absolute inset-0 bg-gradient-to-t from-rose-950/50 via-transparent to-white/10 opacity-70 mix-blend-overlay"></div>
-                 
-                 {/* Ikon Hati di Pojok */}
-                 <motion.div 
-                   animate={{ scale: [1, 1.15, 1] }}
-                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                   className="absolute bottom-5 right-5 text-white drop-shadow-[0_2px_10px_rgba(244,63,94,0.8)]"
-                 >
-                    <Heart fill="currentColor" size={32} />
-                 </motion.div>
-              </div>
+           {/* Badge Kecil */}
+           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-rose-200 rounded-full shadow-sm mb-6">
+              <Stars size={14} className="text-rose-400" />
+              <span className="text-[10px] font-bold tracking-[0.2em] text-rose-400 uppercase">The Final Chapter</span>
            </div>
 
-           {/* RIGHT: TYPOGRAPHY ELEGANT */}
-           <div className="w-full md:w-1/2 text-center md:text-left space-y-8 relative z-10">
+           {/* Judul Besar Bertumpuk (Seperti Home) */}
+           <div className="relative mb-8">
+              <h1 className={`${serifFont.className} text-5xl md:text-7xl lg:text-8xl font-black text-rose-950 leading-[0.9]`}>
+                <span className="block">Barrakallah Fii Umrik</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-purple-500">
+                  Ke-20
+                </span>
+              </h1>
               
-              <div>
-                 <motion.div 
-                   initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
-                   className="inline-flex items-center gap-2 mb-3 text-rose-500 bg-rose-50/80 px-4 py-1 rounded-full border border-rose-100 backdrop-blur-md"
-                 >
-                    <Sparkles size={14} />
-                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase">The One & Only</span>
-                 </motion.div>
-                 
-                 <h1 className={`${serifFont.className} text-5xl md:text-6xl lg:text-[4rem] text-rose-950 leading-[1.1] mb-2 drop-shadow-sm font-black tracking-tight`}>
-                   {content.title}
-                 </h1>
-                 <h2 className={`${handwritingFont.className} text-4xl md:text-5xl text-rose-600 font-bold relative`}>
-                   {content.name}
-                   <motion.span animate={{ width: ['0%', '100%'] }} transition={{ duration: 1.5, delay: 1 }} className="absolute bottom-0 left-0 h-1 bg-rose-300/50 rounded-full"></motion.span>
-                 </h2>
-              </div>
+              {/* Nama Pacar (Script Font Overlay) */}
+              <p className={`${scriptFont.className} text-4xl md:text-5xl text-rose-400 absolute -bottom-8 right-0 md:right-10 rotate-[-4deg] drop-shadow-sm bg-white/30 backdrop-blur-sm px-2 rounded-lg`}>
+                {content.name}
+              </p>
+           </div>
 
-              <div className="relative py-4">
-                 {/* Hiasan Kutipan Besar di Belakang Teks */}
-                 <Quote className="absolute -top-6 -left-4 text-rose-200/40 transform scale-x-[-1] scale-[2.5] pointer-events-none" />
-                 
-                 <p className={`${bodyFont.className} text-gray-700 text-lg md:text-xl leading-relaxed relative z-10 font-medium`}>
-                   {content.wish}
-                 </p>
-              </div>
+           {/* Doa/Wish */}
+           <div className="mt-12 mb-8 bg-white/60 backdrop-blur-sm border-l-4 border-rose-300 p-6 rounded-r-xl">
+              <p className={`${bodyFont.className} text-gray-600 text-lg leading-relaxed text-justify md:text-left`}>
+                "{content.wish}"
+              </p>
+           </div>
 
-              <div className="flex flex-col items-center md:items-start gap-6 pt-4 border-t border-rose-100/50">
-                 <p className={`${handwritingFont.className} text-2xl text-gray-400 flex items-center gap-2`}>
-                   <Stars size={18} className="text-rose-300"/> {content.footer}
-                 </p>
-                 
-                 <Link href="/">
-                    <motion.button 
-                       whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(244, 63, 94, 0.4)" }}
-                       whileTap={{ scale: 0.98 }}
-                       className="group relative overflow-hidden px-8 py-3 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 text-white font-bold shadow-md transition-all flex items-center justify-center gap-3 mx-auto md:mx-0 w-full md:w-auto"
-                     >
-                        <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                        <Home size={20} className="relative z-10"/> 
-                        <span className="relative z-10">Kembali ke Awal</span>
-                        <ArrowRight size={18} className="relative z-10 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                     </motion.button>
-                 </Link>
-              </div>
-
+           {/* Footer & Button */}
+           <div className="flex flex-col md:flex-row items-center gap-6">
+              <p className={`${scriptFont.className} text-2xl text-gray-400`}>
+                {content.footer}
+              </p>
+              
+              <Link href="/">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group px-8 py-3 rounded-full bg-gradient-to-r from-rose-500 to-pink-600 text-white font-semibold shadow-lg hover:shadow-rose-300/50 flex items-center gap-2 transition-all"
+                >
+                   <Home size={18} />
+                   Kembali ke Awal
+                   <ArrowRight size={18} className="opacity-70 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
            </div>
         </motion.div>
-      </motion.div>
 
+        {/* === RIGHT SIDE: PHOTO CARD (WARNA ASLI) === */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="w-full md:w-1/2 flex justify-center order-1 md:order-2 relative"
+        >
+           {/* Hiasan di belakang foto */}
+           <div className="absolute top-10 right-10 w-full h-full border-2 border-rose-200 rounded-[2rem] transform translate-x-4 translate-y-4 -z-10"></div>
+           
+           <motion.div 
+             whileHover={{ scale: 1.02, rotate: 1 }}
+             className="relative bg-white p-3 rounded-[2rem] shadow-2xl w-[300px] md:w-[400px]"
+           >
+              {/* Foto Utama - TANPA OVERLAY PINK */}
+              <div className="relative aspect-[3/4] w-full rounded-[1.8rem] overflow-hidden bg-gray-100">
+                 <Image 
+                   src={content.image} 
+                   alt="Us Forever" 
+                   fill 
+                   className="object-cover" 
+                   priority
+                 />
+                 {/* Hapus div overlay gradient disini agar warna kulit natural */}
+              </div>
+
+              {/* Floating Badge di Foto */}
+              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg border border-rose-50 flex items-center gap-3 animate-bounce-slow">
+                 <div className="bg-rose-100 p-2 rounded-full">
+                    <Heart size={24} className="text-rose-500 fill-rose-500" />
+                 </div>
+                 <div>
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Status</p>
+                    <p className="text-sm font-bold text-gray-800">1000% Sayang Kamu</p>
+                 </div>
+              </div>
+
+              {/* Hiasan Sudut */}
+              <Sparkles className="absolute -top-6 -right-6 text-yellow-400 fill-yellow-400" size={40} />
+           </motion.div>
+        </motion.div>
+
+      </div>
     </main>
   )
 }
