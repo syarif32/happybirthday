@@ -11,48 +11,75 @@ const handwritingFont = Dancing_Script({ subsets: ['latin'], weight: ['400', '70
 const bodyFont = Lora({ subsets: ['latin'], weight: ['400', '600'] })
 
 // --- Data Kenangan (Placeholder) ---
-// Note: rotation adalah kemiringan awal foto agar terlihat natural
+// Note: rotation adalah kemiringan awal foto agar terlihat natural https://drive.google.com/file/d/1de4dl44oGjsDvpPkYoCYThCBD4ZZNYZ9/view?usp=sharing
 const memories = [
   {
     id: 1,
-    url: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&h=800&fit=crop',
-    caption: 'Our first date 💕',
+    url: 'https://drive.google.com/uc?export=view&id=1sV-dUomvpvi_ulgYO4CXTRfr7-_OSUZB',
+    caption: 'That perfect waterfall moment 💕',
     rotation: -3,
     tall: true
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&h=600&fit=crop',
-    caption: 'That perfect sunset 🌅',
+    url: '/memories/dieng.jpeg',
+    caption: 'That perfect sunrise 🌅',
     rotation: 2,
     tall: false
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&h=800&fit=crop',
-    caption: 'Beach day with you ☀️',
+    url: '/memories/marina.jpg',
+    caption: 'Marina vibes with you 🛥️',
     rotation: -4,
     tall: true
   },
   {
+    // https://drive.google.com/file/d/1lTuxfK2ySxaRLzUv6YjhXTvMPcEGIluZ/view?usp=drive_link
     id: 4,
-    url: 'https://images.unsplash.com/photo-1522673607668-e97136e4a053?w=600&h=600&fit=crop',
-    caption: 'Coffee dates ☕',
+    url: '/memories/merbabu.jpeg',
+    caption: 'Merbabu date adventure! 🏞️',
     rotation: 3,
     tall: false
   },
   {
+    // https://drive.google.com/file/d/11ang5xOd1qgLHUFzWy14ePRkqI3OtnTa/view?usp=drive_link
     id: 5,
-    url: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600&h=700&fit=crop',
-    caption: 'Dancing in the rain 💃',
+    url: 'https://drive.google.com/uc?export=view&id=11ang5xOd1qgLHUFzWy14ePRkqI3OtnTa',
+    caption: 'Surakarta ride with U 🌃',
     rotation: -2,
     tall: true
   },
   {
+    // https://drive.google.com/file/d/1XA9WdosYFdCxfZVHs8v-5JgoxHVItNBy/view?usp=drive_link
     id: 6,
-    url: 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=600&h=600&fit=crop',
-    caption: 'Your pretty smile ✨',
+    url: 'https://drive.google.com/uc?export=view&id=1XA9WdosYFdCxfZVHs8v-5JgoxHVItNBy',
+    caption: 'New Year’s vibe, just me & you 🫶',
     rotation: 4,
+    tall: false
+  },
+   {
+    // https://drive.google.com/file/d/1XA9WdosYFdCxfZVHs8v-5JgoxHVItNBy/view?usp=drive_link
+    id: 7,
+    url: '/memories/flowe.jpeg',
+    caption: 'flower from my love 🌸',
+    rotation: 3,
+    tall: false
+  },
+  {
+    // https://drive.google.com/file/d/1XA9WdosYFdCxfZVHs8v-5JgoxHVItNBy/view?usp=drive_link
+    id: 8,
+    url: '/memories/ambarawa.jpeg',
+    caption: 'ambarawa trip with you 🚂',
+    rotation: -2,
+    tall: false
+  },
+  {
+    // https://drive.google.com/file/d/1XA9WdosYFdCxfZVHs8v-5JgoxHVItNBy/view?usp=drive_link
+    id: 9,
+    url: '/memories/surabaya.jpeg',
+    caption: 'surabaya story 🏙️',
+    rotation: 3,
     tall: false
   },
 ]
@@ -106,7 +133,7 @@ export default function MemoriesPage() {
             Our Sweet Memories
           </h1>
           <p className={`${bodyFont.className} text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed`}>
-            Koleksi momen kecil yang menjadi kenangan besar. Setiap foto punya cerita, dan setiap cerita adalah tentang kamu.
+            Koleksi momen kecil yang menjadi kenangan besar. Setiap foto punya cerita, dan setiap cerita adalah tentang kita.
           </p>
         </motion.div>
 
@@ -203,7 +230,7 @@ export default function MemoriesPage() {
               whileTap={{ scale: 0.95 }}
               className={`flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-rose-400 to-pink-500 rounded-full text-white shadow-lg hover:shadow-rose-300/50 transition-all ${bodyFont.className} font-medium`}
             >
-              Kisah Kita (Timeline)
+              Berikutnya 
               <ArrowRight size={20} />
             </motion.button>
           </Link>

@@ -1,7 +1,8 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { Gift, Heart, Sparkles, Music, Home, PartyPopper, Stars } from 'lucide-react'
+// Tambahkan import Infinity icon
+import { Gift, Heart, Sparkles, Music, Home, PartyPopper, Stars, RotateCcw, Infinity as InfinityIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Dancing_Script, Poppins } from 'next/font/google'
@@ -172,7 +173,7 @@ export default function SurprisePage() {
               }}
               className="relative"
             >
-              {/* Kartu Glassmorphism (Ini UI yang kamu suka!) */}
+              {/* Kartu Glassmorphism */}
               <div className="bg-white/60 backdrop-blur-xl border border-white/80 rounded-[2rem] p-8 md:p-14 shadow-[0_20px_50px_rgba(244,63,94,0.15)] relative overflow-hidden">
                 
                 {/* Efek Kilau di ujung kartu */}
@@ -203,44 +204,46 @@ export default function SurprisePage() {
                   className="space-y-4 text-gray-700 md:text-lg leading-relaxed max-w-2xl mx-auto"
                 >
                   <p>
-                    Semoga di usia barumu ini, kamu selalu dikelilingi kebahagiaan, kesehatan, dan cinta yang melimpah.
+                    Semoga di usia barumu ini, kamu selalu dikelilingi kebahagiaan, kesehatan, dan rezeki yang melimpah.
                   </p>
                   <p>
-                    Terima kasih telah menjadi alasan di balik senyumku setiap hari. Kamu adalah anugerah terindah dalam hidupku.
-                    Dunia mungkin berubah, tapi perasaanku padamu akan selalu sama—bahkan bertambah setiap detiknya.
+                    Terima kasih telah menjadi pribadi yang jadi tulang punggung senyuman setiap orang. Semangat untuk tumbuh yaa sayanggg, mamas selalu ada disini.
+                    Semoga apa yang kita impikan bareng jadi suatu hal yang akan terjadi besok.
                   </p>
                   <p className="font-semibold text-rose-500 pt-4 text-xl">
-                    I Love You, Forever & Always. ❤️
+                    I Love Youu ❤️
                   </p>
                 </motion.div>
 
-                {/* Tombol Aksi */}
+                {/* --- BAGIAN TOMBOL --- */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.5 }}
                   className="mt-10 flex flex-col md:flex-row gap-4 justify-center items-center"
                 >
-                  <Link href="/">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-8 py-3 bg-white border border-rose-200 text-rose-600 rounded-full font-medium shadow-sm hover:shadow-md flex items-center gap-2"
-                    >
-                      <Home size={18} />
-                      Ke Beranda
-                    </motion.button>
-                  </Link>
-
+                  {/* Tombol Ulangi (Sekunder - Putih) */}
                   <motion.button
                     onClick={() => setShowSurprise(false)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-full font-medium shadow-lg hover:shadow-rose-300/50 flex items-center gap-2"
+                    className="px-6 py-3 bg-white border border-rose-200 text-rose-500 rounded-full font-medium shadow-sm hover:shadow-md flex items-center gap-2"
                   >
-                    <Sparkles size={18} />
-                    Ulangi Kejutan
+                    <RotateCcw size={18} />
+                    Ulangi
                   </motion.button>
+
+                  {/* Tombol FOREVER (Utama - Gradient) */}
+                  <Link href="/forever">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-10 py-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-rose-300/50 flex items-center gap-2"
+                    >
+                      <InfinityIcon size={20} />
+                      Satu Halaman Terakhir
+                    </motion.button>
+                  </Link>
                 </motion.div>
               </div>
 

@@ -271,8 +271,8 @@ export default function Home() {
             <div className="absolute inset-0 bg-white p-2 rounded-[2.5rem] shadow-2xl overflow-hidden transform transition-all border border-white/50">
                <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
                  <Image 
-                   // GANTI DENGAN FOTO PACAR KAMU
-                   src="https://drive.google.com/file/d/11r05tskCFdMV0mDlDlOVO_71xxkpcpYu/view?usp=sharing" 
+                   // GANTI DENGAN FOTO PACAR KAMU 11r05tskCFdMV0mDlDlOVO_71xxkpcpYu
+                   src="https://drive.google.com/uc?export=view&id=1DS0OhPFubmlASLSf_5PTopr2ME3b_5-g " 
                    alt="Birthday Girl"
                    fill
                    className="object-cover transition-transform duration-700 hover:scale-110"

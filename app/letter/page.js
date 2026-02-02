@@ -2,33 +2,31 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Heart, ArrowRight, ArrowLeft, Sparkles, Flower2, Music, PieChart } from 'lucide-react'
+// Hapus PieChart dan Paperclip jika tidak dipakai untuk menghindari error
+import { Heart, ArrowRight, ArrowLeft, Sparkles, Flower2, Music } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Dancing_Script, Lora, Playfair_Display } from 'next/font/google'
 
-// --- KONFIGURASI FONT ---
 const handwritingFont = Dancing_Script({ subsets: ['latin'], weight: ['400', '700'] })
 const bodyFont = Lora({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 const titleFont = Playfair_Display({ subsets: ['latin'], weight: ['600', '800'] })
 
-// --- KONTEN SURAT ---
 const letterContent = {
-  recipient: "Untuk Sayangku,",
-  // Ganti URL ini dengan foto kalian berdua yang bagus!
-  photoUrl: "https://images.unsplash.com/photo-1523438097201-55957594114c?w=500&q=80", 
+  recipient: "To Sayanggku Icha Febrianti Nur",
+  // https://drive.google.com/file/d/11r05tskCFdMV0mDlDlOVO_71xxkpcpYu/view?usp=drive_link
+  photoUrl: "https://drive.google.com/uc?export=view&id=11r05tskCFdMV0mDlDlOVO_71xxkpcpYu", 
   paragraphs: [
-    "Selamat ulang tahun yang ke-20, cantikku! Rasanya baru kemarin kita ngobrol hal-hal kecil, dan sekarang aku melihatmu tumbuh menjadi wanita yang begitu hebat, kuat, dan luar biasa.",
-    "Mungkin angka 20 terdengar sedikit menakutkan dengan segala tanggung jawab barunya. Tapi percayalah, kamu nggak sendirian. Ada aku di sini, siap jadi pendukung nomor satumu.",
-    "Aku jatuh cinta—lagi dan lagi—sama caramu melihat dunia, sama gigihnya kamu mengejar mimpi, dan sama tulusnya hatimu. Kehadiranmu adalah kado terindah yang pernah semesta titipkan buat aku.",
-    "Terima kasih sudah bertahan sejauh ini. Terima kasih sudah mengizinkan aku jadi bagian dari ceritamu.",
+    "Selamat ulang tahun yang ke-20, cantikku! Rasanya baru kemarin kita ngobrol hal-hal kecil, dan sekarang mas melihatmu tumbuh menjadi wanita yang begitu hebat, kuat, dan luar biasa.",
+    "Mungkin angka 20 terdengar sedikit menakutkan dengan segala tanggung jawab barunya. Tapi percayalah, kamu nggak sendirian. Ada mamas di sini, siap jadi pendukung nomor satumu.",
+    "Mamas kagum sama caramu melihat dunia, sama gigihnya kamu mengejar mimpi, dan sama tulusnya hati dan pikiran kamu. Mamas tahu, perjalanan ini nggak selalu mudah. Ada saat-saat kamu merasa ragu, lelah, atau bahkan pengen nyerah. Tapi lihatlah kamu sekarang, kamu udah melewati semuanya dengan kepala tegak dan senyum di wajahmu.",
+    "Terima kasih sudah bertahan sejauh ini. Terima kasih sudah mengizinkan mas jadi bagian dari ceritamu.",
     "Happy Level 20! Mari kita tua bersama, menertawakan hal bodoh, dan menaklukkan dunia berdua. I love you, more than words could ever say."
   ],
   closing: "Peluk hangat,",
   sender: "Pacarmu Tersayang"
 }
 
-// --- KOMPONEN KELOPAK BUNGA JATUH ---
 const FallingPetals = () => {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -60,18 +58,12 @@ const FallingPetals = () => {
 export default function LetterPage() {
   const [isOpen, setIsOpen] = useState(false)
 
-  // Variasi animasi surat
   const containerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     show: {
-      opacity: 1,
+      opacity: 1, 
       scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.3,
-        delayChildren: 0.5
-      }
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], staggerChildren: 0.3, delayChildren: 0.5 }
     }
   }
 
@@ -82,10 +74,7 @@ export default function LetterPage() {
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-[#fdf2f8]">
-      
-      {/* --- BACKGROUND VIBES --- */}
       <div className="absolute inset-0 bg-gradient-to-br from-rose-100 via-pink-50 to-amber-50 z-0" />
-      
       <motion.div 
         className="absolute top-[-20%] left-[-20%] w-[60vw] h-[60vw] bg-rose-300/30 rounded-full blur-[120px]"
         animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], rotate: [0, 20, 0] }}
@@ -96,14 +85,11 @@ export default function LetterPage() {
         animate={{ scale: [1, 1.3, 1], x: [0, -50, 0], rotate: [0, -20, 0] }}
         transition={{ duration: 18, repeat: Infinity }}
       />
-
       <FallingPetals />
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4">
-        
         <AnimatePresence mode="wait">
           {!isOpen ? (
-            /* --- TAHAP 1: AMPLOP TERTUTUP --- */
             <motion.div
               key="envelope"
               initial={{ opacity: 0, y: 50 }}
@@ -122,7 +108,6 @@ export default function LetterPage() {
                   <div className="absolute top-0 left-0 w-full h-1/2 bg-rose-50/50 origin-top transform skew-y-6 opacity-30"></div>
                   <div className="absolute bottom-0 right-0 w-full h-1/2 bg-white/20 origin-bottom transform -skew-y-6 opacity-30"></div>
                 </div>
-
                 <div className="relative z-20 flex flex-col items-center">
                    <motion.div
                      animate={{ scale: [1, 1.05, 1] }}
@@ -135,14 +120,11 @@ export default function LetterPage() {
                      Buka Suratnya 💌
                    </p>
                 </div>
-
                 <motion.div animate={{ opacity: [0,1,0], scale: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -top-8 -right-8 text-yellow-400"><Sparkles size={32}/></motion.div>
                 <motion.div animate={{ opacity: [0,1,0], scale: [0.5, 1, 0.5] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }} className="absolute -bottom-5 -left-8 text-rose-400"><Heart size={24}/></motion.div>
               </motion.div>
             </motion.div>
-
           ) : (
-            /* --- TAHAP 2: SURAT TERBUKA --- */
             <motion.div
               key="letter"
               variants={containerVariants}
@@ -150,45 +132,25 @@ export default function LetterPage() {
               animate="show"
               className="w-full max-w-3xl relative"
             >
-              {/* KERTAS SURAT */}
               <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_30px_80px_-20px_rgba(244,63,94,0.3)] overflow-hidden border border-white/50">
-                
-                <div className="absolute top-0 right-0 p-6 opacity-10 text-rose-500 pointer-events-none">
-                   <Flower2 size={80} />
-                </div>
-                <div className="absolute bottom-0 left-0 p-6 opacity-10 text-rose-500 pointer-events-none rotate-180">
-                   <Flower2 size={80} />
-                </div>
+                <div className="absolute top-0 right-0 p-6 opacity-10 text-rose-500 pointer-events-none"><Flower2 size={80} /></div>
+                <div className="absolute bottom-0 left-0 p-6 opacity-10 text-rose-500 pointer-events-none rotate-180"><Flower2 size={80} /></div>
 
                 <div className="p-8 md:p-16 relative">
-                  
-                  {/* HEADER */}
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-8">
                     <div className="flex-1">
                        <motion.div variants={itemVariants} className="inline-flex items-center gap-3 mb-6 bg-rose-50/80 px-4 py-2 rounded-full border border-rose-100">
-                         <div className="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center text-white animate-spin-slow">
-                           <Music size={14} />
-                         </div>
+                         <div className="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center text-white animate-spin-slow"><Music size={14} /></div>
                          <div>
                            <p className="text-[10px] text-rose-400 font-bold uppercase tracking-wider">Now Playing</p>
-                           <p className="text-sm text-rose-700 font-medium truncate max-w-[120px]">Music🎵</p>
+                           <p className="text-sm text-rose-700 font-medium truncate max-w-[120px]">Lagu Favorit Kita 🎵</p>
                          </div>
                        </motion.div>
-
-                       <motion.h1 
-                         variants={itemVariants}
-                         className={`${handwritingFont.className} text-5xl md:text-6xl text-rose-600 font-bold drop-shadow-sm leading-tight`}
-                       >
+                       <motion.h1 variants={itemVariants} className={`${handwritingFont.className} text-5xl md:text-6xl text-rose-600 font-bold drop-shadow-sm leading-tight`}>
                          {letterContent.recipient}
                        </motion.h1>
                     </div>
-                    
-                    {/* FOTO POLAROID */}
-                    <motion.div 
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.05, rotate: 0, zIndex: 20 }}
-                      className="relative shrink-0 bg-white p-3 pt-8 pb-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)] rotate-3 border border-gray-100 rounded-sm"
-                    >
+                    <motion.div variants={itemVariants} whileHover={{ scale: 1.05, rotate: 0, zIndex: 20 }} className="relative shrink-0 bg-white p-3 pt-8 pb-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)] rotate-3 border border-gray-100 rounded-sm">
                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-rose-200/50 backdrop-blur-md rotate-[-4deg] opacity-90 shadow-sm z-10"></div>
                        <div className="w-32 h-32 md:w-40 md:h-40 bg-gray-50 overflow-hidden transition-all duration-500 rounded-sm relative z-0">
                           <Image src={letterContent.photoUrl} alt="Us" width={200} height={200} className="object-cover w-full h-full hover:scale-110 transition-transform duration-700" />
@@ -197,31 +159,22 @@ export default function LetterPage() {
                     </motion.div>
                   </div>
 
-                  {/* ISI SURAT */}
                   <div className={`space-y-6 ${bodyFont.className} text-gray-700 leading-relaxed text-lg md:text-[1.15rem] tracking-wide`}>
                     {letterContent.paragraphs.map((p, i) => (
-                      <motion.p key={i} variants={itemVariants}>
-                        {p}
-                      </motion.p>
+                      <motion.p key={i} variants={itemVariants}>{p}</motion.p>
                     ))}
                   </div>
 
-                  {/* PENUTUP */}
                   <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-rose-50 flex flex-col items-end">
-                    <p className={`${handwritingFont.className} text-3xl text-rose-400 mb-2`}>
-                      {letterContent.closing}
-                    </p>
+                    <p className={`${handwritingFont.className} text-3xl text-rose-400 mb-2`}>{letterContent.closing}</p>
                     <div className="relative">
-                       <p className={`${titleFont.className} text-2xl font-bold text-rose-700 tracking-wider`}>
-                         {letterContent.sender}
-                       </p>
+                       <p className={`${titleFont.className} text-2xl font-bold text-rose-700 tracking-wider`}>{letterContent.sender}</p>
                     </div>
                   </motion.div>
-
                 </div>
               </div>
 
-              {/* --- NAVIGATION BUTTONS (TEMPAT TOMBOL RAPORT CINTA YANG BENAR) --- */}
+              {/* NAVIGASI BERURUTAN (HANYA KE MEMORIES) */}
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -236,14 +189,7 @@ export default function LetterPage() {
                  
                  <Link href="/memories">
                     <button className="group w-full md:w-auto flex items-center justify-center gap-3 px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-full shadow-[0_10px_25px_-5px_rgba(244,63,94,0.5)] hover:shadow-[0_15px_35px_-5px_rgba(244,63,94,0.6)] hover:scale-105 transition-all font-semibold tracking-wide">
-                       Lihat Kenangan <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                 </Link>
-
-                 {/* INI TOMBOL KE RAPORT CINTA */}
-                 <Link href="/achievements">
-                    <button className="group w-full md:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-rose-200 text-rose-600 rounded-full font-bold shadow-sm hover:bg-rose-50 hover:scale-105 transition-all">
-                       <PieChart size={18} /> Raport Cinta
+                       Lanjut ke Kenangan <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                  </Link>
               </motion.div>

@@ -14,52 +14,56 @@ const bodyFont = Lora({ subsets: ['latin'], weight: ['400', '500', '600'] })
 const timelineEvents = [
   {
     id: 1,
-    title: 'Awal Cerita',
-    description: 'Satu pesan sederhana yang mengubah segalanya. "save cogan dari grub belajar daring" Siapa sangka balasan iseng itu membawa kita sejauh ini?',
+    title: 'Anak Pertama, Beban Pertama',
+    description:
+      'Kamu tumbuh dengan tanggung jawab yang nggak ringan. Banyak hal kamu tanggung sendiri, banyak hal kamu pikirin sendiri. Tapi kamu tetap jalan, tetap kuat, walaupun kadang capek banget. Mas lihat itu semua.',
     icon: MessageCircle,
-    date: 'The Beginning',
+    date: 'Awal Perjuangan',
     color: 'bg-blue-100 text-blue-600',
-    // Ganti src ini dengan foto chat pertama kalian
-    image: 'https://images.unsplash.com/photo-1611605698389-ecd39e2e7352?w=500&q=80'
+    image: '/memories/hihi.jpeg',
   },
   {
     id: 2,
-    title: 'Pertemuan Pertama 💑',
-    description: 'Deg-degan parah! Tapi begitu melihat senyummu secara langsung, rasanya dunia berhenti berputar sejenak.',
+    title: 'Ragu, OVT, Tapi Tetap Bertahan',
+    description:
+      'Ada masa kamu ngerasa ragu sama diri sendiri, overthinking tiap malam, takut gagal, takut mengecewakan. Tapi kamu tetap bertahan. Kamu tetap berusaha walau hati kamu lagi berantakan. Mamas bangga kamu bisa sampai sini.',
     icon: Heart,
-    date: 'Magic Moment 31 Juli 2023',
+    date: 'Fase Terberat',
     color: 'bg-rose-100 text-rose-600',
-    // Ganti src ini dengan foto pertemuan pertama
-    image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&q=80'
+    image: '/memories/cute.jpeg',
   },
   {
     id: 3,
-    title: 'Kencan Pertama',
-    description: 'Kopi, obrolan deep talk, dan tawa yang nggak habis-habis. Malam itu aku sadar, aku ingin bersamamu lebih lama.',
+    title: 'Pelan-Pelan Kamu Tumbuh',
+    description:
+      'Kamu mulai belajar percaya sama diri sendiri. Kamu mulai kuat bukan karena semuanya mudah, tapi karena kamu nggak menyerah. Kamu berubah, kamu berkembang, dan kamu makin hebat dari hari ke hari. Mas seneng banget lihat versi kamu yang sekarang.',
     icon: Coffee,
-    date: 'Unforgettable Night',
+    date: 'Proses Bertumbuh',
     color: 'bg-amber-100 text-amber-600',
-    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=500&q=80'
+    image: '/memories/biru.jpeg',
   },
   {
     id: 4,
-    title: 'Petualangan Kita 🌟',
-    description: 'Jalan-jalan bareng, nyasar bareng, bahagia bareng. Setiap tempat jadi indah karena ada kamu.',
-    icon: Camera,
-    date: 'Our Adventure',
+    title: 'Semua Pencapaian Kamu',
+    description:
+      'Pertukaran mahasiswa berhasil kamu lewati, IPK kamu makin tinggi, dan kamu juga berhasil dapet magang. Semua itu bukti kalau kamu hebat banget sayanggg <3. Mas bener-bener bangga sama kamu.',
+    icon: Star,
+    date: 'Pencapaian Besar',
     color: 'bg-emerald-100 text-emerald-600',
-    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80'
+    image: '/memories/ub.jpeg',
   },
   {
     id: 5,
-    title: 'Hari Ini - Ultahmu! 🎂',
-    description: 'Merayakan bertambahnya usiamu, dan bersyukur karena kamu telah lahir ke dunia ini untuk melengkapi hidupku.',
-    icon: Cake,
-    date: 'Happy Birthday',
+    title: 'Dan Terakhir… Kisah Kita 🤍',
+    description:
+      'Di antara semua perjalanan kamu yang berat, mas bersyukur bisa hadir jadi bagian kecil dari hidup kamu. Mamas cuma mau jadi tempat pulang kamu, jadi orang yang selalu dukung kamu, dan nemenin kamu sampai sejauh mungkin.',
+    icon: Camera,
+    date: 'Us Together',
     color: 'bg-purple-100 text-purple-600',
-    image: 'https://images.unsplash.com/photo-1530103862676-de3c9a59af38?w=500&q=80'
+    image: '/memories/marina.jpg',
   },
 ]
+
 
 function TimelineItem({ event, index }) {
   const ref = useRef(null)
@@ -168,11 +172,11 @@ export default function TimelinePage() {
           className="text-center mb-24 md:mb-32"
         >
           <h1 className={`${handwritingFont.className} text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600 mb-6 py-2`}>
-            Jejak Cinta Kita
+            Her Story
           </h1>
           <p className={`${bodyFont.className} text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed`}>
-            Setiap detik bersamamu adalah halaman baru dalam buku cerita favoritku.
-            Mari kita lihat kembali bagaimana semua ini bermula...
+            A story about strength, growth, and a heart that never gave up.
+            And I’m grateful I get to be part of it.
           </p>
           
           <motion.div 
@@ -219,7 +223,7 @@ export default function TimelinePage() {
               "To be continued..."
             </p>
             <p className="text-gray-600 text-lg mb-10">
-              Kisah ini baru permulaan. Masih banyak halaman kosong yang menunggu untuk kita tulis bersama.
+              This story isn’t finished yet. There are still so many beautiful pages waiting for us to write together.
             </p>
 
             <Link href="/surprise">
@@ -229,7 +233,7 @@ export default function TimelinePage() {
                 className="px-10 py-4 bg-gradient-to-r from-rose-500 to-purple-600 rounded-full text-white font-semibold text-lg shadow-lg flex items-center gap-3 mx-auto transition-all"
               >
                 <Star className="fill-yellow-400 text-yellow-400" size={20} />
-                Buka Kejutan Terakhir
+                Open Surprise
                 <Star className="fill-yellow-400 text-yellow-400" size={20} />
               </motion.button>
             </Link>
