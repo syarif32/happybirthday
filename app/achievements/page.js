@@ -35,7 +35,7 @@ const otherAchievements = [
   { id: 1, title: "Higher IPK", desc: "Your GPA keeps getting better, so proud of you!", icon: <Utensils size={18} />, image: "/memories/ipk.jpeg" },
   { id: 2, title: "Career Girl", desc: "New internship, new chapter", icon: <Briefcase size={18} />, image: "/memories/mg.jpeg" },
   { id: 3, title: "Organization Leader", desc: "Congrats on becoming the organization coordinator <3", icon: <Dumbbell size={18} />, image: "/memories/rt.jpeg" },
-  { id: 4, title: "Best Partner", desc: "Makin sabar hadapi aku.", icon: <Heart size={18} />, image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" },
+  { id: 4, title: "Self-Glow Progress", desc: "A little glow up every day, and I’m proud of it", icon: <Heart size={18} />, image: "/memories/biru.jpeg" },
 ]
 
 const struggles = [
