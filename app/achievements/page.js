@@ -167,14 +167,18 @@ export default function AnnualReportPage() {
       {/* --- FOOTER NAVIGATION --- */}
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-center pt-20 pb-10">
          <div className="flex justify-center gap-4">
+             {/* Tombol Beranda */}
              <Link href="/">
                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="bg-white border border-rose-200 text-rose-600 px-6 py-3 rounded-full font-medium shadow-sm hover:bg-rose-50 flex items-center gap-2">
                  <Home size={18} /> Beranda
                </motion.button>
              </Link>
-             <Link href="/surprise">
+             
+             {/* --- PERBAIKAN: Tombol Lanjut ke MEMORIES --- */}
+             {/* Ubah href dari /surprise menjadi /memories */}
+             <Link href="/memories">
                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl flex items-center gap-2">
-                 Lanjut ke Kejutan <ArrowRight size={18} />
+                 Lanjut ke Kenangan <ArrowRight size={18} />
                </motion.button>
              </Link>
          </div>
